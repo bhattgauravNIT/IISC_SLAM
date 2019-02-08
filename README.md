@@ -1,7 +1,6 @@
 # IISC_SLAM
 
-This is Gaurav Bhatt an engineering student from NATIONAL INSTITUTE OF TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this file will be helpful for you to implement live streaming of Large scale direct monocula
-slam without any error on your consoles .
+This is Gaurav Bhatt an engineering student from NATIONAL INSTITUTE OF TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this file will be helpful for you to implement live streaming of Large scale direct monocular slam without any error on your consoles.
 
 # INSTRUCTIONS 
 
@@ -11,6 +10,7 @@ being made to move on real time CPU.
 
 [ https://www.youtube.com/watch?v=R1njsqpt-MA&t=226s ] ------ live streaming uav lab IISC  
 [ https://www.youtube.com/watch?v=6KRlwqubLIU ] ----------- LSD-SLAM machine dataset  
+
 
  # RELATED PAPERS  
 
