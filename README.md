@@ -1,14 +1,10 @@
 # IISC_SLAM
 Hey
 
-This is GAURAV BHATT an engineering student from NATIONAL INSTITUTE OF
-
-TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this
-
-file will be helpful for you to implement live streaming of Large scale direct monocula
+This is GAURAV BHATT an engineering student from NATIONAL INSTITUTE OF TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this file will be helpful for you to implement live streaming of Large scale direct monocula
 slam without any error on your consoles .
 
-INSTRUCTIONS --------------
+# INSTRUCTIONS --------------
 
 
 LSD-SLAM method uses direct SLAM algorithm to perform simultaneous localization(tracking) of
@@ -20,7 +16,7 @@ being made to move on real time CPU.
 [ https://www.youtube.com/watch?v=6KRlwqubLIU ] ----------- LSD-SLAM machine dataset
 
 
-RELATED PAPERS------
+ # RELATED PAPERS------
 
 
 1.IISC Banglore research paper yet to be published.
@@ -29,7 +25,7 @@ RELATED PAPERS------
 https://vision.in.tum.de/_media/spezial/bib/engel14eccv.pdf
 
 
-PREREQUISTIES----------
+ # PREREQUISTIES----------
 
 
 1. We have tested LSD-SLAM on ubuntu 14.04 ros indigo . (However it can be performed on any
@@ -40,7 +36,7 @@ higer version of ubuntu as well).
 follow the step by step procedure provided by the link .
 
 
-PROCEDURE-----------------------
+ # PROCEDURE-----------------------
 
 
 Open up an console and follow.......
@@ -72,7 +68,7 @@ dev libqglviewer-dev libsuitesparse-dev$ rosmake lsd_slam
 $ rosmake usb_cam
 
 
-TESTING LSD_SLAM FOR DATASETS--------------------------
+ # TESTING LSD_SLAM FOR DATASETS--------------------------
 
 
 Taking to consideration that yu have succesfully build your lsd_slam package without any building
@@ -88,39 +84,50 @@ LSD_room.bag.zip file . Download and extract this dataset if yu wish to use this
 
 # If yu are using LSD_machine.bag dataset or any other dataset of (.bag) format , in seprate
 
-terminals ...................................
+# terminals ...................................
 
 $ roscore
 
 $ rosrun lsd_slam_viewer viewer
+
 $ rosrun lsd_slam_core live_slam image:=/image_raw camera_info:=/camera_info
+
 $ rosbag play ~/LSD_machine.bag
-# If yu are using any .png format dataset i.e a collection of large number of images and not a (.bag )
-file then in sepreate terminals .................................
+
+# If yu are using any .png format dataset i.e a collection of large number of images and not a (.bag ) then in sepreate terminals .................................
+
 $ roscore
+
 $ rosrun lsd_slam_viewer viewer
-$ rosrun lsd_slam_core dataset_slam _files:=<files> _hz:=0 _calib:=<calibration_file> # i.e we
-simply need to write the complete path to dataset file and to that of camera calibration file in which
-camera calibrated parameters are present ex..
+
+$ rosrun lsd_slam_core dataset_slam _files:=<files> _hz:=0 _calib:=<calibration_file>
+  
+# i.e we simply need to write the complete path to dataset file and to that of camera calibration file in which camera calibrated parameters are present ex..
+
 rosrun lsd_slam_core dataset_slam_files:=/home/gaurav/Desktop/LSD_machine/images/ hz:=0
 calib:=/home/gaurav/Desktop/LSD_machine/cameracalibration.cfg
-LSD SLAM ON LIVE STREAM------------------------
+
+ # LSD SLAM ON LIVE STREAM------------------------
+ 
 Taking into consideration that yu have successfully calibrated your camera which yu will be using
 to perform live lsd_slam and has obtained its calibartion file . For more details consider
 [ http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration ]
+
 If you are using pinhole model for camera calibration than the file obtained will be in (. yaml)
 format with co-efficents of distortion matrix and camera matrix. In order to use this file we need to
 convert it into format of files basically selfwrite it in formats of files as shown in
+
 ........./lsd_slam/lsd_slam_core/calib/ anyone of them however not that of atan_calib.cfg format as
 we have earlier used pinhole model for camera calibration and its parameters values will be
 different than atan format models.
+
 Headcamera.yaml ------ ( obtained calibration file)
-Camera_matrix is of format
-Distortion_coffecients is of format
-data:
-data:
-[ f(x) 0 c(x) 0 f(y) c(y) 0 0 1 ]
-[ k1 k2 p1 p2 ]
+Camera_matrix is of format                      data:      [ f(x) 0 c(x) 0 f(y) c(y) 0 0 1 ]
+
+Distortion_coffecients is of format             data:     [ k1 k2 p1 p2 ]
+
+
+
 We have converted or created a opencv camera model format file using our head_camera.yaml file
 however any format could be preffered according to your wish howevefr format of that file must be
 known .OPENCV MODEL FORMAT----------------
