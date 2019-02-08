@@ -1,8 +1,6 @@
 # IISC_SLAM
 
-Hey
-
-This is GAURAV BHATT an engineering student from NATIONAL INSTITUTE OF TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this file will be helpful for you to implement live streaming of Large scale direct monocula
+This is Gaurav Bhatt an engineering student from NATIONAL INSTITUTE OF TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this file will be helpful for you to implement live streaming of Large scale direct monocula
 slam without any error on your consoles .
 
 # INSTRUCTIONS 
@@ -68,14 +66,12 @@ $ rosrun lsd_slam_viewer viewer
 $ rosrun lsd_slam_core live_slam image:=/image_raw camera_info:=/camera_info  
 $ rosbag play ~/LSD_machine.bag  
 
-# If yu are using any .png format dataset i.e a collection of large number of images and not a (.bag ) then in sepreate terminals.
+# For using any .png format dataset i.e a collection of large number of images then in sepreate terminals.
 
-$ roscore
-
-$ rosrun lsd_slam_viewer viewer
-
+$ roscore  
+$ rosrun lsd_slam_viewer viewer  
 $ rosrun lsd_slam_core dataset_slam _files:=<files> _hz:=0 _calib:=<calibration_file>  
-  
+ 
 i.e we simply need to write the complete path to dataset file and to that of camera calibration file in which camera calibrated parameters are present ex..   
 
 rosrun lsd_slam_core dataset_slam_files:=/home/gaurav/Desktop/LSD_machine/images/ hz:=0 calib:=/home/gaurav/Desktop/LSD_machine/cameracalibration.cfg  
@@ -95,10 +91,10 @@ convert it into format of files basically selfwrite it in formats of files as sh
 we have earlier used pinhole model for camera calibration and its parameters values will be
 different than atan format models.  
 
-Headcamera.yaml ------ ( obtained calibration file)  
+Headcamera.yaml ( obtained calibration file)  
   
-Camera_matrix is of format                      data:     [ f(x) 0 c(x) 0 f(y) c(y) 0 0 1 ] 
-Distortion_coffecients is of format             data:     [ k1 k2 p1 p2 ]
+Camera_matrix is of format                      data:     [ f(x) 0 c(x) 0 f(y) c(y) 0 0 1 ]   
+Distortion_coffecients is of format             data:     [ k1 k2 p1 p2 ]  
   
 We have converted or created a opencv camera model format file using our head_camera.yaml file
 however any format could be preffered according to your wish howevefr format of that file must be
