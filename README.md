@@ -1,46 +1,37 @@
 # IISC_SLAM
+
 Hey
 
 This is GAURAV BHATT an engineering student from NATIONAL INSTITUTE OF TECHNOLOGY SRINAGAR and intern under IISC BANGLORE, INDIA .I hope this file will be helpful for you to implement live streaming of Large scale direct monocula
 slam without any error on your consoles .
 
-# INSTRUCTIONS --------------
-
+# INSTRUCTIONS 
 
 LSD-SLAM method uses direct SLAM algorithm to perform simultaneous localization(tracking) of
 the agent or robot alongside with 3d mapping of the topology of the environment in which it is
 being made to move on real time CPU.
 
-[ https://www.youtube.com/watch?v=R1njsqpt-MA&t=226s ] ------ live streaming uav lab IISC
+[ https://www.youtube.com/watch?v=R1njsqpt-MA&t=226s ] ------ live streaming uav lab IISC  
+[ https://www.youtube.com/watch?v=6KRlwqubLIU ] ----------- LSD-SLAM machine dataset  
 
-[ https://www.youtube.com/watch?v=6KRlwqubLIU ] ----------- LSD-SLAM machine dataset
+ # RELATED PAPERS  
 
-
- # RELATED PAPERS------
-
-
-1.IISC Banglore research paper yet to be published.
-
-2. LSD-SLAM: Large-Scale Direct Monocular SLAM - Computer Vision ...
+1.IISC Banglore research paper yet to be published.  
+2. LSD-SLAM: Large-Scale Direct Monocular SLAM - Computer Vision.  
 https://vision.in.tum.de/_media/spezial/bib/engel14eccv.pdf
 
-
- # PREREQUISTIES----------
-
+ # PREREQUISTIES  
 
 1. We have tested LSD-SLAM on ubuntu 14.04 ros indigo . (However it can be performed on any
-higer version of ubuntu as well).
+higer version of ubuntu as well).    
+1.1 ROS indigo set up ------- [ http://wiki.ros.org/indigo/Installation/Ubuntu ].  
 
-1.1 ROS indigo set up ------- [ http://wiki.ros.org/indigo/Installation/Ubuntu ].
+follow the step by step procedure provided by the link.   
 
-follow the step by step procedure provided by the link .
+ # PROCEDURE
 
-
- # PROCEDURE-----------------------
-
-
-Open up an console and follow.......
-
+Open up an console and follow.
+  
 Copy the iisc_ws folder to your desired location say Desktop using the github link . This
 workspace contains all necessary folder which are being made error free for compilation . A
 usb_cam package is provided for live streaming using your camera ( certain changes in launch file
@@ -48,51 +39,34 @@ need to be done in case you are not using your laptop head camera i.e any other 
 logitec 720p say in case , in the 3 rd line value need to be changed to 1(for external camera) and 0
 (for head camera ) ).
 
-$ sudo apt-get install python-rosinstall
+$ sudo apt-get install python-rosinstall  
+$ cd iisc_ws  
+$ rosws init . /opt/ros/indigo  
+$ rosws set ~/iisc_ws/iiscslam_dir -t.  
+$ echo "source ~/iisc_ws/setup.bash" >> ~/.bashrc   
+$ bash  
+$ cd iiscslam_dir  
+$ sudo apt-get install ros-indigo-libg2o ros-indigo-cv-bridge liblapack-dev libblas-dev freeglut3-dev libqglviewer-dev libsuitesparse-dev    
+$ rosmake lsd_slam   
+$ rosmake usb_cam   
 
-$ cd iisc_ws
-
-$ rosws init . /opt/ros/indigo
-
-$ rosws set ~/iisc_ws/iiscslam_dir -t .
-
-$ echo "source ~/iisc_ws/setup.bash" >> ~/.bashrc
-
-$ bash
-
-$ cd iiscslam_dir
-
-$ sudo apt-get install ros-indigo-libg2o ros-indigo-cv-bridge liblapack-dev libblas-dev freeglut3-
-dev libqglviewer-dev libsuitesparse-dev  
-
-$ rosmake lsd_slam  
-
-$ rosmake usb_cam  
-
-
- # TESTING LSD_SLAM FOR DATASETS--------------------------
-
+ # TESTING LSD_SLAM FOR DATASETS-
 
 Taking to consideration that yu have succesfully build your lsd_slam package without any building
 errors you are now ready to test lsd_slam for datasets....
 
 1. [ https://vision.in.tum.de/research/vslam/lsdslam?redirect=1 ] this link provides datasets in
 video as well as pointcloud type involving both png as well as bag files . Ex. Desk sequence ,
-Machine sequence, bottledata etc
-
+Machine sequence, bottledata etc.  
 2. [ http://vmcremers8.informatik.tu-muenchen.de/lsd/LSD_room.bag.zip ] for direct download of
-LSD_room.bag.zip file . Download and extract this dataset if yu wish to use this.
-
-
+LSD_room.bag.zip file . Download and extract this dataset if yu wish to use this.  
+  
 # If you are using LSD_machine.bag dataset or any other dataset of (.bag) format then in seprate terminals.
 
-$ roscore
-
-$ rosrun lsd_slam_viewer viewer
-
-$ rosrun lsd_slam_core live_slam image:=/image_raw camera_info:=/camera_info
-
-$ rosbag play ~/LSD_machine.bag
+$ roscore  
+$ rosrun lsd_slam_viewer viewer  
+$ rosrun lsd_slam_core live_slam image:=/image_raw camera_info:=/camera_info  
+$ rosbag play ~/LSD_machine.bag  
 
 # If yu are using any .png format dataset i.e a collection of large number of images and not a (.bag ) then in sepreate terminals.
 
