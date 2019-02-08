@@ -115,22 +115,17 @@ to perform live lsd_slam and has obtained its calibartion file . For more detail
   
 If you are using pinhole model for camera calibration than the file obtained will be in (. yaml)
 format with co-efficents of distortion matrix and camera matrix. In order to use this file we need to
-convert it into format of files basically selfwrite it in formats of files as shown in  
-
+convert it into format of files basically selfwrite it in formats of files as shown in.  
+  
 ........./lsd_slam/lsd_slam_core/calib/ anyone of them however not that of atan_calib.cfg format as
 we have earlier used pinhole model for camera calibration and its parameters values will be
 different than atan format models.  
 
-Headcamera.yaml ------ ( obtained calibration file)
-
-
-Camera_matrix is of format                      data:      [ f(x) 0 c(x) 0 f(y) c(y) 0 0 1 ] 
-
-
+Headcamera.yaml ------ ( obtained calibration file)  
+  
+Camera_matrix is of format                      data:     [ f(x) 0 c(x) 0 f(y) c(y) 0 0 1 ] 
 Distortion_coffecients is of format             data:     [ k1 k2 p1 p2 ]
-
-
-
+  
 We have converted or created a opencv camera model format file using our head_camera.yaml file
 however any format could be preffered according to your wish howevefr format of that file must be
 known .OPENCV MODEL FORMAT----------------
@@ -140,21 +135,16 @@ inputWidth inputHeight
 "crop" / "full" / "none" / "e1 e2 e3 e4 0"   
 outputWidth outputHeight     
   
-  
 Or any other format according to your camera calibration type . Above input height and width of
 image being viewed by camera say 640x480 in our case . The third line specifies how the image is
 distorted, either by specifying a desired camera matrix in the same format as the first four intrinsic
 parameters, or by specifying "crop", which crops the image to maximal size while including only
-valid image pixels.
+valid image pixels.  
 
-
-$ roscore
-
-$ rosrun lsd_slam_viewer viewer
-
-$ rosrun usb_cam usb_cam_node
-
-$ rosrun lsd_slam_core live_slam /image:=<yourstreamtopic> _calib:=<calibration_file>
+$ roscore  
+$ rosrun lsd_slam_viewer viewer  
+$ rosrun usb_cam usb_cam_node  
+$ rosrun lsd_slam_core live_slam /image:=<yourstreamtopic> _calib:=<calibration_file>  
  
 here your image topic and path to your camera calibration file need to be provided ex.
 
@@ -164,10 +154,9 @@ _calib:=/home/Desktop/my_calibr.cgf
 **Tracking immediately diverges / I keep getting "TRACKING LOST for frame 34 (0.00% good
 Points, which is -nan% of available points, DIVERGED)!"**
 
-- double-check your camera calibration.
+- double-check your camera calibration.   
+- try more translational movement and less roational movement.  
 
-- try more translational movement and less roational movement
-
-# some tracking lost problem is common while using handheld cameras however is not encountered
+Some tracking lost problem is common while using handheld cameras however is not encountered
 during working with bebop quadcopter live streaming due to its stability of motion and accurate
-setted keyframes of it's inbuild camera.
+setted keyframes of it's inbuild camera.  
