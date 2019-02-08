@@ -63,9 +63,11 @@ $ bash
 $ cd iiscslam_dir
 
 $ sudo apt-get install ros-indigo-libg2o ros-indigo-cv-bridge liblapack-dev libblas-dev freeglut3-
-dev libqglviewer-dev libsuitesparse-dev$ rosmake lsd_slam
+dev libqglviewer-dev libsuitesparse-dev  
 
-$ rosmake usb_cam
+$ rosmake lsd_slam  
+
+$ rosmake usb_cam  
 
 
  # TESTING LSD_SLAM FOR DATASETS--------------------------
@@ -82,7 +84,7 @@ Machine sequence, bottledata etc
 LSD_room.bag.zip file . Download and extract this dataset if yu wish to use this.
 
 
-# If yu are using LSD_machine.bag dataset or any other dataset of (.bag) format, then in seprate terminals
+# If you are using LSD_machine.bag dataset or any other dataset of (.bag) format then in seprate terminals.
 
 $ roscore
 
@@ -92,7 +94,7 @@ $ rosrun lsd_slam_core live_slam image:=/image_raw camera_info:=/camera_info
 
 $ rosbag play ~/LSD_machine.bag
 
-# If yu are using any .png format dataset i.e a collection of large number of images and not a (.bag ) then in sepreate terminals .................................
+# If yu are using any .png format dataset i.e a collection of large number of images and not a (.bag ) then in sepreate terminals.
 
 $ roscore
 
@@ -102,15 +104,15 @@ $ rosrun lsd_slam_core dataset_slam _files:=<files> _hz:=0 _calib:=<calibration_
   
 i.e we simply need to write the complete path to dataset file and to that of camera calibration file in which camera calibrated parameters are present ex..   
 
-rosrun lsd_slam_core dataset_slam_files:=/home/gaurav/Desktop/LSD_machine/images/ hz:=0
-calib:=/home/gaurav/Desktop/LSD_machine/cameracalibration.cfg
+rosrun lsd_slam_core dataset_slam_files:=/home/gaurav/Desktop/LSD_machine/images/ hz:=0 calib:=/home/gaurav/Desktop/LSD_machine/cameracalibration.cfg  
 
  # LSD SLAM ON LIVE STREAM------------------------
  
 Taking into consideration that yu have successfully calibrated your camera which yu will be using
 to perform live lsd_slam and has obtained its calibartion file . For more details consider
-[ http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration ]  
 
+[ http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration ]    
+  
 If you are using pinhole model for camera calibration than the file obtained will be in (. yaml)
 format with co-efficents of distortion matrix and camera matrix. In order to use this file we need to
 convert it into format of files basically selfwrite it in formats of files as shown in  
@@ -133,14 +135,12 @@ We have converted or created a opencv camera model format file using our head_ca
 however any format could be preffered according to your wish howevefr format of that file must be
 known .OPENCV MODEL FORMAT----------------
 
-f(x) f(y) c(x) c(y) k1 k2 p1 p2  
-
+f(x) f(y) c(x) c(y) k1 k2 p1 p2   
 inputWidth inputHeight  
-
-"crop" / "full" / "none" / "e1 e2 e3 e4 0"  
-
+"crop" / "full" / "none" / "e1 e2 e3 e4 0"   
 outputWidth outputHeight     
-
+  
+  
 Or any other format according to your camera calibration type . Above input height and width of
 image being viewed by camera say 640x480 in our case . The third line specifies how the image is
 distorted, either by specifying a desired camera matrix in the same format as the first four intrinsic
